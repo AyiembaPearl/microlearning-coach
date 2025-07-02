@@ -71,3 +71,36 @@ a {
 button:hover, .button:hover {
   background-color: #6a6aff;
 }
+
+.unit-list {
+  list-style: none;
+  padding: 0;
+}
+
+.unit-list li {
+  background: #c8a2c8; /* lilac */
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.unit-list li a {
+  color: white;
+  text-decoration: none;
+}
+
+.unit-list li:hover {
+  background: #4a4aff; /* light blue */
+}
+
+.topic-card {
+  background: #fff;
+  border-left: 6px solid #4a4aff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
