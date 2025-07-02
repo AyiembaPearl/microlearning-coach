@@ -53,3 +53,38 @@ document.getElementById('contact-form')?.addEventListener('submit', function(e) 
   alert("Thanks for reaching out! We'll get back to you soon.");
   this.reset();
 });
+
+// Load topics dynamically for unit1.html
+if (window.location.pathname.includes("unit1.html")) {
+  fetch("topics.json")
+    .then((res) => res.json())
+    .then((topics) => {
+      const container = document.getElementById("topic-list");
+      container.innerHTML = ""; // clear loading text
+
+      const unitTopics = topics.filter(
+        (topic) => topic.unit === "Medical Electronics"
+      );
+
+      if (unitTopics.length === 0) {
+        container.innerHTML = "<p>No topics found.</p>";
+        return;
+      }
+
+      unitTopics.forEach((topic) => {
+        const card = document.createElement("div");
+        card.className = "topic-card";
+        card.innerHTML = `
+          <h3>${topic.title}</h3>
+          <iframe width="100%" height="215" src="${topic.video}" frameborder="0" allowfullscreen></iframe>
+          <p><a href="${topic.notes}" target="_blank">Download Notes (PDF)</a></p>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch((err) => {
+      console.error("Error loading topics:", err);
+      document.getElementById("topic-list").innerHTML = `<p>Error loading topics.</p>`;
+    });
+}
+
