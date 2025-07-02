@@ -1,0 +1,40 @@
+<!-- upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Content | Microlearning Coach</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Upload New Topic</h1>
+    <form id="upload-form">
+      <label for="unit">Select Unit:</label>
+      <select id="unit" required>
+        <option value="">-- Choose a Unit --</option>
+        <option value="Medical Electronics">Medical Electronics</option>
+        <option value="Biomedical Instrumentation">Biomedical Instrumentation</option>
+        <option value="Anesthesia, Respiration & ICU Equipment">Anesthesia, Respiration & ICU Equipment</option>
+        <!-- Add more units -->
+      </select>
+
+      <label for="topic">Topic Title:</label>
+      <input type="text" id="topic" required />
+
+      <label for="video">YouTube Video Link:</label>
+      <input type="url" id="video" placeholder="https://www.youtube.com/watch?v=..." required />
+
+      <label for="notes">PDF/Drive Link to Notes:</label>
+      <input type="url" id="notes" required />
+
+      <button type="submit">Upload Topic</button>
+    </form>
+
+    <p><a href="dashboard.html">⬅ Back to Dashboard</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

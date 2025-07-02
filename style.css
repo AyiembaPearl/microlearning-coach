@@ -104,3 +104,12 @@ button:hover, .button:hover {
   border-radius: 8px;
 }
 
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form select {
+  margin-bottom: 15px;
+}
+

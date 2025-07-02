@@ -33,3 +33,18 @@ if (window.location.pathname.includes('dashboard.html')) {
     trainerSection.style.display = 'flex';
   }
 }
+
+// Handle trainer upload (mocked)
+document.getElementById('upload-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const unit = document.getElementById('unit').value;
+  const topic = document.getElementById('topic').value;
+  const video = document.getElementById('video').value;
+  const notes = document.getElementById('notes').value;
+
+  alert(`Uploaded Topic:\nUnit: ${unit}\nTitle: ${topic}\nVideo: ${video}\nNotes: ${notes}\n(Simulation only)`);
+
+  // Reset form
+  this.reset();
+});
+
