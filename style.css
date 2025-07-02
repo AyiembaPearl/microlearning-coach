@@ -113,3 +113,19 @@ form input, form select {
   margin-bottom: 15px;
 }
 
+.testimonial {
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #4a4aff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+textarea {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
