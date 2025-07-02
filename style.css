@@ -183,12 +183,52 @@ textarea {
 .quiz button {
   margin: 5px 0;
   padding: 8px 12px;
-  background: rgb(6, 238, 238);
+  background: rgb(29, 6, 238);
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
 }
 .quiz button:hover {
   background: #eee;
+}
+
+.discussion {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f9f9ff;
+  border-left: 4px solid #4a4aff;
+  border-radius: 6px;
+}
+
+.comment-box {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.comment-box a {
+  display: inline-block;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #4a4aff;
+}
+
+.reply {
+  margin-left: 1rem;
+  background: #eef;
+  padding: 0.4rem;
+  border-radius: 4px;
+}
+
+.reply-section input {
+  width: 80%;
+  padding: 4px;
+}
+
+.reply-section button {
+  padding: 4px 8px;
+  margin-left: 5px;
 }
 

@@ -105,8 +105,69 @@ if (window.location.pathname.includes("unit1.html")) {
            // Append quiz under topic content
            card.appendChild(quizDiv);
          }
-         // Finally, add card to the page
-         container.appendChild(card);
+
+         // 🧑‍🤝‍🧑 Add Peer Review Area
+         const discussion = document.createElement("div");
+         discussion.className = "discussion";
+         discussion.innerHTML = `
+         <h4>Peer Review Area</h4>
+         <div class="comment-list"></div>
+         <textarea rows="3" placeholder="Share your thoughts..." class="comment-input"></textarea><br>
+         <button class="post-comment">Post Comment</button>
+         `;
+
+         const commentList = discussion.querySelector(".comment-list");
+         const input = discussion.querySelector(".comment-input");
+         const postBtn = discussion.querySelector(".post-comment");
+
+        // Store all comments for this topic in memory
+        let comments = [];
+
+        postBtn.onclick = () => {
+        const text = input.value.trim();
+        if (!text) return;
+        const comment = { text, replies: [] };
+        comments.push(comment);
+        input.value = "";
+        renderComments();
+        };
+
+        function renderComments() {
+        commentList.innerHTML = "";
+        comments.forEach((comment, idx) => {
+            const commentBox = document.createElement("div");
+            commentBox.className = "comment-box";
+            commentBox.innerHTML = `
+            <p>${comment.text}</p>
+            <a href="mailto:dorothyayiemba@gmail.com?subject=Consultation Request&body=${encodeURIComponent(comment.text)}" target="_blank">📧 Consult Trainer</a>
+            <div class="reply-section">
+                <input type="text" placeholder="Reply..." class="reply-input"/>
+                <button class="reply-btn">Reply</button>
+            </div>
+            <div class="replies">
+                ${comment.replies.map(reply => `<p class="reply">↳ ${reply}</p>`).join("")}
+            </div>
+            `;
+
+            // Reply button logic
+            const replyInput = commentBox.querySelector(".reply-input");
+            const replyBtn = commentBox.querySelector(".reply-btn");
+            replyBtn.onclick = () => {
+            const replyText = replyInput.value.trim();
+            if (!replyText) return;
+            comment.replies.push(replyText);
+            renderComments(); // re-render to show the reply
+            };
+
+            commentList.appendChild(commentBox);
+        });
+        }
+
+        // Add the discussion to the topic card
+        card.appendChild(discussion);
+
+        // Finally, add card to the page
+        container.appendChild(card);
       });
     })
     .catch((err) => {
