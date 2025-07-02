@@ -79,7 +79,34 @@ if (window.location.pathname.includes("unit1.html")) {
           <iframe width="100%" height="215" src="${topic.video}" frameborder="0" allowfullscreen></iframe>
           <p><a href="${topic.notes}" target="_blank">Download Notes (PDF)</a></p>
         `;
-        container.appendChild(card);
+        // Add Quiz if available
+        if (topic.quiz) {
+           const quizDiv = document.createElement("div");
+           quizDiv.className = "quiz";
+           quizDiv.innerHTML = `<p><strong>Quiz:</strong> ${topic.quiz.question}</p>`;
+
+           topic.quiz.options.forEach((opt, index) => {
+             const btn = document.createElement("button");
+             btn.textContent = opt;
+             btn.onclick = () => {
+               if (index === topic.quiz.answer) {
+                  btn.style.backgroundColor = "lightgreen";
+                  btn.textContent += " ✅ Correct!";
+                } else {
+                  btn.style.backgroundColor = "#f88";
+                  btn.textContent += " ❌ Try again.";
+                }
+                // Disable all buttons
+                quizDiv.querySelectorAll("button").forEach((b) => (b.disabled = true));
+             };
+             quizDiv.appendChild(btn);
+             quizDiv.appendChild(document.createElement("br"));
+           });
+           // Append quiz under topic content
+           card.appendChild(quizDiv);
+         }
+         // Finally, add card to the page
+         container.appendChild(card);
       });
     })
     .catch((err) => {

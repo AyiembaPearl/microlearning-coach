@@ -173,3 +173,22 @@ textarea {
   border-radius: 8px;
 }
 
+.quiz {
+  margin-top: 1rem;
+  background: #f2f2ff;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 5px solid #4a4aff;
+}
+.quiz button {
+  margin: 5px 0;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.quiz button:hover {
+  background: #eee;
+}
+
