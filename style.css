@@ -183,7 +183,7 @@ textarea {
 .quiz button {
   margin: 5px 0;
   padding: 8px 12px;
-  background: white;
+  background: rgb(6, 238, 238);
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
