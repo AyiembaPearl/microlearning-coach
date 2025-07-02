@@ -121,15 +121,18 @@ if (window.location.pathname.includes("unit1.html")) {
          const postBtn = discussion.querySelector(".post-comment");
 
         // Store all comments for this topic in memory
-        let comments = [];
+        const storageKey = `comments_${topic.title.replace(/\s+/g, "_")}`;
+        let comments = JSON.parse(localStorage.getItem(storageKey)) || [];
+
 
         postBtn.onclick = () => {
-        const text = input.value.trim();
-        if (!text) return;
-        const comment = { text, replies: [] };
-        comments.push(comment);
-        input.value = "";
-        renderComments();
+          const text = input.value.trim();
+          if (!text) return;
+          const comment = { text, replies: [] };
+          comments.push(comment);
+          localStorage.setItem(storageKey, JSON.stringify(comments));
+          input.value = "";
+          renderComments();
         };
 
         function renderComments() {
@@ -153,10 +156,11 @@ if (window.location.pathname.includes("unit1.html")) {
             const replyInput = commentBox.querySelector(".reply-input");
             const replyBtn = commentBox.querySelector(".reply-btn");
             replyBtn.onclick = () => {
-            const replyText = replyInput.value.trim();
-            if (!replyText) return;
-            comment.replies.push(replyText);
-            renderComments(); // re-render to show the reply
+              const replyText = replyInput.value.trim();
+              if (!replyText) return;
+              comment.replies.push(replyText);
+              localStorage.setItem(storageKey, JSON.stringify(comments));
+              renderComments();// re-render to show the reply
             };
 
             commentList.appendChild(commentBox);
