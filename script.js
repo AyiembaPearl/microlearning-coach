@@ -18,3 +18,18 @@ document.getElementById('login-form')?.addEventListener('submit', function(e) {
   alert(`Logged in as ${email}. (Mock login)`);
   window.location.href = 'dashboard.html'; // coming in next sprint
 });
+
+// Simulated user role (you'll later replace with Firebase login role)
+const userRole = 'trainer'; // change to 'student' to test student view
+
+if (window.location.pathname.includes('dashboard.html')) {
+  const roleEl = document.getElementById('user-role');
+  const trainerSection = document.getElementById('trainer-section');
+  const studentSection = document.getElementById('student-section');
+
+  roleEl.textContent = `You are logged in as a ${userRole.toUpperCase()}.`;
+
+  if (userRole === 'trainer') {
+    trainerSection.style.display = 'flex';
+  }
+}
