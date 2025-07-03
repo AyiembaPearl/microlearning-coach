@@ -100,39 +100,78 @@ if (window.location.pathname.includes("unit1.html")) {
 
         // Add Quiz if available
         if (Array.isArray(topic.quiz)) {
-          const quizDiv = document.createElement("div");
-          quizDiv.className = "quiz";
-          quizDiv.innerHTML = `<h4>Quiz</h4>`;
+      // Multiple question quiz
+      const quizDiv = document.createElement("div");
+      quizDiv.className = "quiz";
+      quizDiv.innerHTML = `<h4>Quiz</h4>`;
+      
+      let score = 0;
 
-          topic.quiz.forEach((q, qIndex) => {
-            const questionBlock = document.createElement("div");
-            questionBlock.className = "question-block";
-            questionBlock.innerHTML = `<p><strong>Q${qIndex + 1}:</strong> ${q.question}</p>`;
+      topic.quiz.forEach((q, qIndex) => {
+        const questionBlock = document.createElement("div");
+        questionBlock.className = "question-block";
+        questionBlock.innerHTML = `<p><strong>Q${qIndex + 1}:</strong> ${q.question}</p>`;
 
-            q.options.forEach((opt, index) => {
+        q.options.forEach((opt, index) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt;
+          btn.onclick = () => {
+            if (index === q.answer) {
+              btn.style.backgroundColor = "lightgreen";
+              btn.textContent += " ✅ Correct!";
+              score++;
+            } else {
+              btn.style.backgroundColor = "#f88";
+              btn.textContent += " ❌ Incorrect";
+            }
+
+        // Disable all buttons for this question
+        questionBlock.querySelectorAll("button").forEach(b => b.disabled = true);
+
+        // Check if all questions are answered
+        const totalAnswered = quizDiv.querySelectorAll("button:disabled").length;
+        if (totalAnswered === topic.quiz.length * q.options.length) {
+          const scoreBox = document.createElement("p");
+          scoreBox.innerHTML = `🎯 You got <strong>${score}</strong> out of <strong>${topic.quiz.length}</strong> correct.`;
+          scoreBox.style.marginTop = "10px";
+          quizDiv.appendChild(scoreBox);
+        }
+                };
+                questionBlock.appendChild(btn);
+                questionBlock.appendChild(document.createElement("br"));
+              });
+
+              quizDiv.appendChild(questionBlock);
+            });
+
+            card.appendChild(quizDiv);
+
+          } else if (topic.quiz) {
+            // Old single-question format
+            const quizDiv = document.createElement("div");
+            quizDiv.className = "quiz";
+            quizDiv.innerHTML = `<p><strong>Quiz:</strong> ${topic.quiz.question}</p>`;
+
+            topic.quiz.options.forEach((opt, index) => {
               const btn = document.createElement("button");
               btn.textContent = opt;
               btn.onclick = () => {
-                if (index === q.answer) {
+                if (index === topic.quiz.answer) {
                   btn.style.backgroundColor = "lightgreen";
                   btn.textContent += " ✅ Correct!";
                 } else {
                   btn.style.backgroundColor = "#f88";
-                  btn.textContent += " ❌ Incorrect";
+                  btn.textContent += " ❌ Try again.";
                 }
-
-                // Disable all buttons for this question
-                questionBlock.querySelectorAll("button").forEach(b => b.disabled = true);
+                quizDiv.querySelectorAll("button").forEach((b) => (b.disabled = true));
               };
-              questionBlock.appendChild(btn);
-              questionBlock.appendChild(document.createElement("br"));
+              quizDiv.appendChild(btn);
+              quizDiv.appendChild(document.createElement("br"));
             });
 
-            quizDiv.appendChild(questionBlock);
-          });
+            card.appendChild(quizDiv);
+          }
 
-        card.appendChild(quizDiv);
-      }
 
          const driveStorageKey = `drive_links_${topic.title.replace(/\s+/g, "_")}`;
          let driveLinks = JSON.parse(localStorage.getItem(driveStorageKey)) || [];
