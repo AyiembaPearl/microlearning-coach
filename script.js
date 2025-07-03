@@ -229,3 +229,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    // Clear user login info
+    localStorage.removeItem("userEmail");
+
+    // Optionally clear other stored data if needed:
+    // localStorage.clear();
+
+    // Redirect to login page
+    window.location.href = "login.html";
+  });
+}
+
