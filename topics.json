@@ -19,8 +19,8 @@
     "notes": "https://example.com/notes-power.pdf",
     "quiz": [
       {
-      "question": "What is the function of a diode?",
-      "options": ["Amplify signals", "Allow current to flow in one direction", "Store energy", "Measure resistance"],
+      "question": "Which of the following is not a power supply system?",
+      "options": ["3-phase delta supply", "Single-unit supply", "1-phase series-parallel supply", "3-phase delta supply"],
       "answer": 1
       }
     ]
