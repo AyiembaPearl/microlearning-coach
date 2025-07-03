@@ -96,7 +96,9 @@ if (window.location.pathname.includes("unit1.html")) {
         // Save state when toggled
         checkbox.addEventListener("change", () => {
           localStorage.setItem(completionKey, checkbox.checked);
+          updateProgressBars(); // <-- update progress after toggle
         });
+
 
         // Add Quiz if available
         if (Array.isArray(topic.quiz)) {
@@ -270,7 +272,36 @@ if (window.location.pathname.includes("unit1.html")) {
         // Finally, add card to the page
         container.appendChild(card);
       });
+      // === Progress Tracker Logic ===
+    function updateProgressBars() {
+      const allTopics = topics.filter(t => t.unit); // All units
+      const unitTopics = topics.filter(t => t.unit === "Medical Electronics");
+
+      const completedUnit = unitTopics.filter(t => {
+        const key = `completed_${t.title.replace(/\s+/g, "_")}`;
+        return localStorage.getItem(key) === "true";
+      }).length;
+
+      const completedAll = allTopics.filter(t => {
+        const key = `completed_${t.title.replace(/\s+/g, "_")}`;
+        return localStorage.getItem(key) === "true";
+      }).length;
+
+      // Percentages
+      const unitPct = unitTopics.length ? Math.round((completedUnit / unitTopics.length) * 100) : 0;
+      const overallPct = allTopics.length ? Math.round((completedAll / allTopics.length) * 100) : 0;
+
+      // Set UI
+      document.getElementById("unit-progress-bar").style.width = unitPct + "%";
+      document.getElementById("unit-progress-text").textContent = unitPct + "%";
+
+      document.getElementById("overall-progress-bar").style.width = overallPct + "%";
+      document.getElementById("overall-progress-text").textContent = overallPct + "%";
+    }
+      updateProgressBars();
+
     })
+    
     .catch((err) => {
       console.error("Error loading topics:", err);
       document.getElementById("topic-list").innerHTML = `<p>Error loading topics.</p>`;
