@@ -106,6 +106,36 @@ if (window.location.pathname.includes("unit1.html")) {
            card.appendChild(quizDiv);
          }
 
+         const driveStorageKey = `drive_links_${topic.title.replace(/\s+/g, "_")}`;
+         let driveLinks = JSON.parse(localStorage.getItem(driveStorageKey)) || [];
+
+         const driveLinkInput = document.getElementById("driveLinkInput");
+         const saveDriveLinkBtn = document.getElementById("saveDriveLinkBtn");
+         const driveLinkStatus = document.getElementById("driveLinkStatus");
+         const driveLinksList = document.getElementById("driveLinksList");
+
+         function renderDriveLinks() {
+            driveLinksList.innerHTML = "";
+            driveLinks.forEach((link, index) => {
+              const li = document.createElement("li");
+              li.innerHTML = `<a href="${link}" target="_blank">Resource ${index + 1}</a>`;
+              driveLinksList.appendChild(li);
+            });
+          }
+
+          saveDriveLinkBtn.onclick = () => {
+            const link = driveLinkInput.value.trim();
+            if (!link) return;
+            driveLinks.push(link);
+            localStorage.setItem(driveStorageKey, JSON.stringify(driveLinks));
+            driveLinkInput.value = "";
+            driveLinkStatus.textContent = "✅ Link saved!";
+            renderDriveLinks();
+          };
+
+          renderDriveLinks();
+
+
          // 🧑‍🤝‍🧑 Add Peer Review Area
          const discussion = document.createElement("div");
          discussion.className = "discussion";
