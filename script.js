@@ -99,31 +99,40 @@ if (window.location.pathname.includes("unit1.html")) {
         });
 
         // Add Quiz if available
-        if (topic.quiz) {
-           const quizDiv = document.createElement("div");
-           quizDiv.className = "quiz";
-           quizDiv.innerHTML = `<p><strong>Quiz:</strong> ${topic.quiz.question}</p>`;
+        if (Array.isArray(topic.quiz)) {
+          const quizDiv = document.createElement("div");
+          quizDiv.className = "quiz";
+          quizDiv.innerHTML = `<h4>Quiz</h4>`;
 
-           topic.quiz.options.forEach((opt, index) => {
-             const btn = document.createElement("button");
-             btn.textContent = opt;
-             btn.onclick = () => {
-               if (index === topic.quiz.answer) {
+          topic.quiz.forEach((q, qIndex) => {
+            const questionBlock = document.createElement("div");
+            questionBlock.className = "question-block";
+            questionBlock.innerHTML = `<p><strong>Q${qIndex + 1}:</strong> ${q.question}</p>`;
+
+            q.options.forEach((opt, index) => {
+              const btn = document.createElement("button");
+              btn.textContent = opt;
+              btn.onclick = () => {
+                if (index === q.answer) {
                   btn.style.backgroundColor = "lightgreen";
                   btn.textContent += " ✅ Correct!";
                 } else {
                   btn.style.backgroundColor = "#f88";
-                  btn.textContent += " ❌ Try again.";
+                  btn.textContent += " ❌ Incorrect";
                 }
-                // Disable all buttons
-                quizDiv.querySelectorAll("button").forEach((b) => (b.disabled = true));
-             };
-             quizDiv.appendChild(btn);
-             quizDiv.appendChild(document.createElement("br"));
-           });
-           // Append quiz under topic content
-           card.appendChild(quizDiv);
-         }
+
+                // Disable all buttons for this question
+                questionBlock.querySelectorAll("button").forEach(b => b.disabled = true);
+              };
+              questionBlock.appendChild(btn);
+              questionBlock.appendChild(document.createElement("br"));
+            });
+
+            quizDiv.appendChild(questionBlock);
+          });
+
+        card.appendChild(quizDiv);
+      }
 
          const driveStorageKey = `drive_links_${topic.title.replace(/\s+/g, "_")}`;
          let driveLinks = JSON.parse(localStorage.getItem(driveStorageKey)) || [];

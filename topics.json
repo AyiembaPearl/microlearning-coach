@@ -30,5 +30,23 @@
       ],
       "answer": 1
     }
-  }
+  },
+  {
+  "unit": "Medical Electronics",
+  "title": "Capacitors in Circuits",
+  "video": "https://www.youtube.com/embed/xyz123",
+  "notes": "notes/capacitors.pdf",
+  "quiz": [
+    {
+      "question": "What is the main purpose of a capacitor?",
+      "options": ["Amplify", "Store energy", "Rectify", "Resist current"],
+      "answer": 1
+    },
+    {
+      "question": "Capacitance is measured in?",
+      "options": ["Ohms", "Henries", "Volts", "Farads"],
+      "answer": 3
+    }
+  ]
+}
 ]
