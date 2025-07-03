@@ -78,7 +78,26 @@ if (window.location.pathname.includes("unit1.html")) {
           <h3>${topic.title}</h3>
           <iframe width="100%" height="215" src="${topic.video}" frameborder="0" allowfullscreen></iframe>
           <p><a href="${topic.notes}" target="_blank">Download Notes (PDF)</a></p>
+          <p>
+          <label>
+            <input type="checkbox" class="completion-checkbox" data-title="${topic.title}">
+            Mark as Completed ✅
+          </label>
+        </p>
         `;
+        const completionKey = `completed_${topic.title.replace(/\s+/g, "_")}`;
+        const checkbox = card.querySelector(".completion-checkbox");
+
+        // Load saved state
+        if (localStorage.getItem(completionKey) === "true") {
+          checkbox.checked = true;
+        }
+
+        // Save state when toggled
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(completionKey, checkbox.checked);
+        });
+
         // Add Quiz if available
         if (topic.quiz) {
            const quizDiv = document.createElement("div");
