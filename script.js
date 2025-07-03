@@ -341,3 +341,25 @@ if (logoutBtn) {
   });
 }
 
+// Show overall progress on student dashboard
+if (window.location.pathname.includes("dashboard.html")) {
+  fetch("topics.json")
+    .then((res) => res.json())
+    .then((topics) => {
+      const allTopics = topics.filter(t => t.unit);
+      const completedAll = allTopics.filter(t => {
+        const key = `completed_${t.title.replace(/\s+/g, "_")}`;
+        return localStorage.getItem(key) === "true";
+      }).length;
+
+      const overallPct = allTopics.length ? Math.round((completedAll / allTopics.length) * 100) : 0;
+
+      const bar = document.getElementById("overall-progress-bar");
+      const text = document.getElementById("overall-progress-text");
+
+      if (bar && text) {
+        bar.style.width = overallPct + "%";
+        text.textContent = overallPct + "%";
+      }
+    });
+}
