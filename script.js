@@ -360,6 +360,13 @@ if (window.location.pathname.includes("dashboard.html")) {
       if (bar && text) {
         bar.style.width = overallPct + "%";
         text.textContent = overallPct + "%";
+
+        const statusMsg = document.getElementById("completion-status-msg");
+        if (statusMsg) {
+          statusMsg.textContent = overallPct === 100
+            ? "🎉 All units completed!"
+            : "Keep going! You're at " + overallPct + "% overall.";
+        }
       }
     });
 }
