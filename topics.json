@@ -1,9 +1,9 @@
 [
   {
-    "unit": "Medical Electronics",
-    "title": "Introduction to Electronics",
-    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "notes": "https://example.com/notes-intro.pdf",
+    "unit": "Medical Electronics III",
+    "title": "Power Amplifiers",
+    "video": "https://www.youtube.com/embed/d8ug0NbaIds",
+    "notes": "notes/diode.pdf",
     "quiz": [
       {
       "question": "What is the function of a diode?",
@@ -13,34 +13,92 @@
     ]
   },
   {
-    "unit": "Medical Electronics",
-    "title": "Power Supply Systems",
-    "video": "https://www.youtube.com/embed/VIDEO_ID_2",
-    "notes": "https://example.com/notes-power.pdf",
+    "unit": "Engineering Technician Mathematics I",
+    "title": "Introduction to Algebra",
+    "video": "https://www.youtube.com/embed/example2",
+    "notes": "notes/algebra.pdf",
     "quiz": [
       {
-      "question": "Which of the following is not a power supply system?",
-      "options": ["3-phase delta supply", "Single-unit supply", "1-phase series-parallel supply", "3-phase delta supply"],
+      "question": "Which is not a trait of a cartesian graph?",
+      "options": ["x-axis is vertical", "x-axis is horizontal", "y-axis is vertical", "Title and labels are mandatory"],
+      "answer": 0
+      }
+    ]
+  },
+  {
+    "unit": "Anaesthesia, Respiration & ICU Equipment",
+    "title": "Basic Ventilator Components",
+    "video": "https://www.youtube.com/embed/example3",
+    "notes": "notes/ventilator.pdf",
+    "quiz": [
+      {
+      "question": "What is the function of a ventilator?",
+      "options": ["Deliver anaesthesia to patient", "Resuscitate", "Store oxygen", "Support patient breathing"],
+      "answer": 3
+      }
+    ]
+  },
+  {
+    "unit": "Renal Equipment",
+    "title": "Introduction to Dialysis Machines",
+    "video": "https://www.youtube.com/embed/example4",
+    "notes": "notes/dialysis.pdf",
+    "quiz": [
+      {
+      "question": "What is an extracorporeal circuit?",
+      "options": ["Used inside the body", "Used outside the body", "None mentioned", "Measures pressure"],
       "answer": 1
       }
     ]
   },
   {
-  "unit": "Medical Electronics",
-  "title": "Capacitors in Circuits",
-  "video": "https://www.youtube.com/embed/xyz123",
-  "notes": "notes/capacitors.pdf",
-  "quiz": [
-    {
-      "question": "What is the main purpose of a capacitor?",
-      "options": ["Amplify", "Store energy", "Rectify", "Resist current"],
+    "unit": "Physiotherapy Equipment",
+    "title": "Types of Electrotherapy Machines",
+    "video": "https://www.youtube.com/embed/example5",
+    "notes": "notes/physiotherapy.pdf",
+    "quiz": [
+      {
+      "question": "What is TENS in full?",
+      "options": ["Transcutaneous Elec. Nerve Stim.", "Treat Elec. Nerve Stim.", "Trend Elec. Nerve Stim", "Transverse Elec. Nerve Stim"],
+      "answer": 0
+      }
+    ]
+  },
+  {
+    "unit": "Kitchen and Laundry Equipment",
+    "title": "Hospital-Grade Washing Machines",
+    "video": "https://www.youtube.com/embed/example6",
+    "notes": "notes/laundry.pdf",
+    "quiz": [
+      {
+      "question": "What is reverse-braking?",
+      "options": ["Stop completely", "Pause briefly then proceed", "Continous", "None of the above"],
       "answer": 1
-    },
-    {
-      "question": "Capacitance is measured in?",
-      "options": ["Ohms", "Henries", "Volts", "Farads"],
-      "answer": 3
-    }
-  ]
-}
+      }
+    ]
+  },
+  {
+    "unit": "Workshop Technology II",
+    "title": "Basic Metalwork Tools",
+    "video": "https://www.youtube.com/embed/example7",
+    "notes": "notes/metalwork.pdf"
+  },
+  {
+    "unit": "Dental Technology",
+    "title": "Dental Chair Mechanism",
+    "video": "https://www.youtube.com/embed/example8",
+    "notes": "notes/dental.pdf"
+  },
+  {
+    "unit": "Clinical Safety",
+    "title": "Electrical Safety in Hospitals",
+    "video": "https://www.youtube.com/embed/example9",
+    "notes": "notes/safety.pdf"
+  },
+  {
+    "unit": "Environmental Literacy",
+    "title": "Biomedical Waste Management",
+    "video": "https://www.youtube.com/embed/example10",
+    "notes": "notes/environment.pdf"
+  }
 ]
