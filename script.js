@@ -370,3 +370,9 @@ if (window.location.pathname.includes("dashboard.html")) {
       }
     });
 }
+
+document.getElementById('hamburger').addEventListener('click', function () {
+  const navLinks = document.getElementById('nav-links');
+  navLinks.classList.toggle('show');
+});
+
