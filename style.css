@@ -1,11 +1,12 @@
 /* Header */
 header {
-  background-color: #4a4aff;
-  padding: 1rem 2rem;
+  background-color: #333;
   color: white;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 header h1 {
@@ -295,7 +296,24 @@ body.dark-mode button {
   transition: width 0.4s ease;
 }
 
-/* Base styles */
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-links button {
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Hamburger icon */
 .hamburger {
   display: none;
   font-size: 1.8rem;
@@ -305,8 +323,26 @@ body.dark-mode button {
   cursor: pointer;
 }
 
-/* Small screen behavior */
+/* Responsive for small screens */
 @media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #444;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
+    width: 180px;
+    align-items: flex-start;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
   .hamburger {
     display: block;
   }
