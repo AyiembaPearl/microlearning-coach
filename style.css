@@ -299,7 +299,7 @@ body.dark-mode button {
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: end;
   background: #333;
   padding: 0.5rem 1rem;
   color: white;
