@@ -4,96 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome | Microlearning Coach</title>
-  <style>
-    .layout {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1.5rem;
-    }
-
-    .sidebar {
-      flex: 1 1 220px;
-      background-color: #ecf0f1;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-
-    .sidebar h3 {
-      margin-top: 0;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .sidebar ul li {
-      margin-bottom: 0.8rem;
-    }
-
-    .sidebar ul li a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-    }
-
-    .container {
-      flex: 3 1 600px;
-      padding: 1rem;
-    }
-
-    .search-section {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    #search-input {
-      flex: 1;
-      padding: 0.6rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    #search-button {
-      padding: 0.6rem 1rem;
-      background-color: #2c3e50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    /* Responsive for mobile */
-    @media (max-width: 768px) {
-      .layout {
-        flex-direction: column;
-      }
-      .sidebar {
-        order: 2;
-      }
-    }
-
-    /* Optional: dark mode styling */
-    body.dark-mode .sidebar {
-      background-color: #1e1e1e;
-      color: #fff;
-    }
-    body.dark-mode .sidebar ul li a {
-      color: #fff;
-    }
-    body.dark-mode #search-input {
-      background-color: #2a2a2a;
-      color: #fff;
-      border-color: #444;
-    }
-  </style>
   <link rel="stylesheet" href="style.css" />
-
 </head>
 <body>
   <header>
@@ -122,7 +33,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="container">
+    <main class="container1">
       <!-- Search Bar -->
       <div class="search-section">
         <input type="text" id="search-input" placeholder="Search lessons or topics..." />
@@ -132,7 +43,8 @@
       <!-- Welcome Message -->
       <div class="welcome-text">
         <h1>Welcome to Microlearning Coach</h1>
-        <p>Empowering Medical Engineering Students with bite-sized lessons.</p>
+        <p>Empowering medical engineering students with bite-sized lessons.</br>
+          Student learning made easier with practical knowledge and real-world case studies</p>
       </div>
 
       <!-- Buttons -->
@@ -140,6 +52,19 @@
         <a href="login.html" class="button">Login</a>
         <a href="signup.html" class="button-outline">Sign Up</a>
       </div>
+
+      <!-- Highlights Section -->
+      <section class="highlights">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li>Biomedical Sensors</li>
+          <li>AI in Healthcare</li>
+          <li>Wearable Tech</li>
+          <li>Medical Imaging</li>
+          <li>Patient Monitoring</li>
+          <li>Electronics & Instrumentation</li>
+        </ul>
+      </section>
     </main>
   </div>
 

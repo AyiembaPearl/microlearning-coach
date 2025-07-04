@@ -375,3 +375,24 @@ document.getElementById('hamburger').addEventListener('click', function () {
   document.getElementById('nav-links').classList.toggle('show');
 });
 
+// Toggle FAQ items
+document.addEventListener("DOMContentLoaded", function () {
+  const faqButtons = document.querySelectorAll(".faq-question");
+
+  faqButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const answer = this.nextElementSibling;
+      const isOpen = this.classList.contains("active");
+
+      // Close all open FAQs
+      document.querySelectorAll(".faq-answer").forEach((a) => (a.style.display = "none"));
+      document.querySelectorAll(".faq-question").forEach((q) => q.classList.remove("active"));
+
+      // Toggle current one
+      if (!isOpen) {
+        answer.style.display = "block";
+        this.classList.add("active");
+      }
+    });
+  });
+});
