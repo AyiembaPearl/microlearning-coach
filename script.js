@@ -54,8 +54,13 @@ document.getElementById('contact-form')?.addEventListener('submit', function(e) 
   this.reset();
 });
 
-// Load topics dynamically for unit1.html
-if (window.location.pathname.includes("unit1.html")) {
+
+// Get the unit from URL query string
+const urlParams = new URLSearchParams(window.location.search);
+const selectedUnit = urlParams.get("unit"); // e.g. Medical Electronics
+// Load topics dynamically for each unit
+if (selectedUnit && window.location.pathname.includes("unit1.html")) {
+  document.getElementById("unit-title").textContent = selectedUnit;
   fetch("topics.json")
     .then((res) => res.json())
     .then((topics) => {
@@ -63,7 +68,7 @@ if (window.location.pathname.includes("unit1.html")) {
       container.innerHTML = ""; // clear loading text
 
       const unitTopics = topics.filter(
-        (topic) => topic.unit === "Medical Electronics"
+        (topic) => topic.unit === selectedUnit
       );
 
       if (unitTopics.length === 0) {
