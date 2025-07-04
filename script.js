@@ -19,7 +19,7 @@ document.getElementById('login-form')?.addEventListener('submit', function(e) {
   window.location.href = 'dashboard.html'; // coming in next sprint
 });
 
-// Simulated user role (you'll later replace with Firebase login role)
+// Simulated user role (can later replace with Firebase login role)
 const userRole = 'trainer'; // change to 'student' to test student view
 
 if (window.location.pathname.includes('dashboard.html')) {

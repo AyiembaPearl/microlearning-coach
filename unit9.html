@@ -1,0 +1,58 @@
+<!-- unit1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clinical Safety | Microlearning Coach</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <h1>Microlearning Coach</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="units.html">Units</a>
+      <a href="news.html">News</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact</a>
+      <button id="logoutBtn" style="margin-left: 15px;">Logout</button>
+      <button id="theme-toggle" title="Toggle Theme">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Clinical Safety</h1>
+    <div class="progress-section">
+  <h3>📊 Progress Tracker</h3>
+  <p>Unit Progress: <span id="unit-progress-text">0%</span></p>
+  <div class="progress-bar">
+    <div class="progress-fill" id="unit-progress-bar" style="width: 0%;"></div>
+  </div>
+  </div>
+
+    <div id="topic-list">Loading topics...</div>
+    <p><a href="units.html">⬅ Back to Units</a></p>
+  </div>
+  <div class="drive-upload-section trainer-only" style="display: none;">
+    <h4>Upload Lesson Material (Google Drive Link)</h4>
+    <input type="text" id="driveLinkInput" placeholder="Paste Google Drive Shareable Link" />
+    <button id="saveDriveLinkBtn">Save Link</button>
+    <p id="driveLinkStatus"></p>
+  </div>
+  <div class="drive-link-display">
+    <h4>Additional Lesson Resources:</h4>
+    <ul id="driveLinksList"></ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Microlearning Coach. Built by Dorothy Ayiemba.
+  </footer>
+
+  <!-- JS Loader -->
+  <script src="script.js"></script>
+</body>
+</html>
