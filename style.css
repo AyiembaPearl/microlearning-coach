@@ -1,6 +1,6 @@
 /* Header */
 header {
-  background-color: #333;
+  background-color: #4a4aff;
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -295,6 +295,7 @@ body.dark-mode button {
   line-height: 20px;
   transition: width 0.4s ease;
 }
+
 
 /* Nav links */
 .nav-links {
