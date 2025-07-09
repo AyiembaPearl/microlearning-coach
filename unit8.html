@@ -55,5 +55,11 @@
 
   <!-- JS Loader -->
   <script src="script.js"></script>
+  <script>
+    const query = new URLSearchParams(window.location.search);
+    if (!query.has("unit")) {
+      window.location.search = "?unit=Dental Technology"; 
+    }
+  </script>
 </body>
 </html>
