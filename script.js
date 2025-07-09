@@ -57,7 +57,7 @@ document.getElementById('contact-form')?.addEventListener('submit', function(e) 
 
 // Get the unit from URL query string
 const urlParams = new URLSearchParams(window.location.search);
-const selectedUnit = urlParams.get("unit"); // e.g. Medical Electronics
+const selectedUnit = urlParams.get("unit"); // e.g. Medical Electronics III
 // Load topics dynamically for each unit
 if (selectedUnit && window.location.pathname.includes("unit1.html")) {
   document.getElementById("unit-title").textContent = selectedUnit;
