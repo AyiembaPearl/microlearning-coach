@@ -280,7 +280,7 @@ if (selectedUnit && window.location.pathname.includes("unit1.html")) {
       // === Progress Tracker Logic ===
     function updateProgressBars() {
       const allTopics = topics.filter(t => t.unit); // All units
-      const unitTopics = topics.filter(t => t.unit === "Medical Electronics III");
+      const unitTopics = topics.filter(t => t.unit === selectedUnit);
 
       const completedUnit = unitTopics.filter(t => {
         const key = `completed_${t.title.replace(/\s+/g, "_")}`;
