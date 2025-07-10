@@ -59,7 +59,7 @@ document.getElementById('contact-form')?.addEventListener('submit', function(e) 
 const urlParams = new URLSearchParams(window.location.search);
 const selectedUnit = urlParams.get("unit"); // e.g. Medical Electronics III
 // Load topics dynamically for each unit
-if (selectedUnit && window.location.pathname.includes("unit1.html")) {
+if (selectedUnit && window.location.pathname.includes("unit")) {
   document.getElementById("unit-title").textContent = selectedUnit;
   fetch("topics.json")
     .then((res) => res.json())
